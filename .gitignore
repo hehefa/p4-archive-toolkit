@@ -1,0 +1,10 @@
+# Working data and secrets never belong to this code repository.
+local/
+exports/
+backups/
+.env*
+*.sqlite*
+*.db
+__pycache__/
+*.pyc
+.DS_Store

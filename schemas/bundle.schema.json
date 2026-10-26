@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "P4 evidence exchange bundle",
+  "type": "object",
+  "required": [
+    "format",
+    "entities"
+  ],
+  "properties": {
+    "format": {
+      "const": "p4-evidence-v1"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,199}$"
+          },
+          "kind": {
+            "enum": [
+              "project",
+              "person",
+              "role",
+              "casting",
+              "event",
+              "asset",
+              "source",
+              "segment",
+              "claim",
+              "document",
+              "coverage",
+              "publication",
+              "alignment"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string"
+          },
+          "refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "epistemic": {
+            "enum": [
+              "record",
+              "observation",
+              "inference",
+              "quotation",
+              "unknown"
+            ]
+          },
+          "permission": {
+            "type": "object"
+          },
+          "reliability": {
+            "type": "object"
+          },
+          "alignment": {
+            "type": "object",
+            "required": [
+              "source_id",
+              "target_source_id",
+              "source_start",
+              "source_end",
+              "offset_seconds",
+              "uncertainty_seconds",
+              "uncertainty_note",
+              "basis",
+              "time_basis",
+              "scope",
+              "model",
+              "extrapolation_allowed"
+            ],
+            "properties": {
+              "scope": {
+                "const": "local_interval"
+              },
+              "model": {
+                "const": "constant_offset"
+              },
+              "time_basis": {
+                "const": "source_zero"
+              },
+              "extrapolation_allowed": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "subject",
+          "predicate",
+          "object"
+        ]
+      }
+    }
+  },
+  "$comment": "Runtime core.normalized and validate additionally enforce finite source-zero ranges, FK/identity/casting integrity and permission/reliability constraints."
+}

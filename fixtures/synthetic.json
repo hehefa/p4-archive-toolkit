@@ -1,0 +1,114 @@
+{
+  "format": "p4-evidence-v1",
+  "entities": [
+    {
+      "id": "demo-project",
+      "kind": "project",
+      "title": "合成排练项目",
+      "text": "This fixture is wholly synthetic."
+    },
+    {
+      "id": "demo-person",
+      "kind": "person",
+      "title": "合成参与者A",
+      "metadata": {
+        "identity_status": "unresolved"
+      }
+    },
+    {
+      "id": "demo-role",
+      "kind": "role",
+      "title": "合成角色"
+    },
+    {
+      "id": "demo-casting",
+      "kind": "casting",
+      "title": "合成角色分配",
+      "refs": [
+        "demo-person",
+        "demo-role",
+        "demo-project"
+      ]
+    },
+    {
+      "id": "demo-asset",
+      "kind": "asset",
+      "title": "合成源片",
+      "metadata": {
+        "duration_seconds": 120,
+        "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    },
+    {
+      "id": "demo-segment",
+      "kind": "segment",
+      "title": "合成机器片段",
+      "source_id": "demo-asset",
+      "start": 10,
+      "end": 25,
+      "time_basis": "source_zero",
+      "text": "合成文本，不是现实人物原话。",
+      "reliability": {
+        "method": "machine_asr",
+        "human_reviewed": false,
+        "limitations": [
+          "Synthetic fixture, no real person or quotation"
+        ]
+      },
+      "epistemic": "quotation"
+    },
+    {
+      "id": "demo-event",
+      "kind": "event",
+      "title": "合成排练事件",
+      "refs": [
+        "demo-project",
+        "demo-asset"
+      ],
+      "event_time": {
+        "value": "2020-01",
+        "precision": "month",
+        "source": "Synthetic document date; no inferred day"
+      }
+    },
+    {
+      "id": "demo-claim",
+      "kind": "claim",
+      "title": "合成主张",
+      "refs": [
+        "demo-segment"
+      ],
+      "text": "示范有证据的推断。",
+      "epistemic": "inference"
+    },
+    {
+      "id": "demo-counter",
+      "kind": "claim",
+      "title": "合成反证",
+      "refs": [
+        "demo-segment"
+      ],
+      "epistemic": "inference"
+    },
+    {
+      "id": "demo-document",
+      "kind": "document",
+      "title": "合成来源文献",
+      "text": "Demonstration only."
+    }
+  ],
+  "relations": [
+    {
+      "id": "demo-support",
+      "subject": "demo-claim",
+      "predicate": "supports",
+      "object": "demo-segment"
+    },
+    {
+      "id": "demo-contradiction",
+      "subject": "demo-counter",
+      "predicate": "contradicts",
+      "object": "demo-claim"
+    }
+  ]
+}

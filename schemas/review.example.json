@@ -1,0 +1,19 @@
+{
+  "decision": "approved",
+  "destination": "github-index",
+  "approved_by": "REPLACE_WITH_ACTUAL_APPROVER",
+  "evidence": "REPLACE_WITH_ACTUAL_SCOPE_EVIDENCE",
+  "records": [
+    {
+      "id": "REPLACE_WITH_ENTITY_ID",
+      "digest": "REPLACE_WITH_CURRENT_SHA256",
+      "fields": [
+        "title",
+        "text",
+        "refs",
+        "epistemic",
+        "reliability"
+      ]
+    }
+  ]
+}

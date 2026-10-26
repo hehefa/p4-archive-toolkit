@@ -1,0 +1,40 @@
+{
+  "format": "p4-approved-public-release-v1",
+  "approval": "explicit-user-approved",
+  "repository": "hehefa/p4-archive-system",
+  "visibility": "private",
+  "release": "0.1.10",
+  "files": [
+    {
+      "path": "public/README.md",
+      "bytes": 6670,
+      "sha256": "b5603a82b5377388a2db74345a5f1a8eda27271971a257842f0720e216258bba"
+    },
+    {
+      "path": "public/documents.json",
+      "bytes": 2562231,
+      "sha256": "927da5ab4ab93132401bf4fc2df67949a3ed09577ac8b5776b356c6f3ef47824"
+    },
+    {
+      "path": "public/source-index.json",
+      "bytes": 1093493,
+      "sha256": "b86fbb42f3a8eef16fdd831c19d8ab50efc1533c00a784f81d53cec0c0eb180a"
+    },
+    {
+      "path": "public/scope.json",
+      "bytes": 9104,
+      "sha256": "334435701cdb5cc2781ab6f45fb3df8bd3070ce1909f9e1e3d2f06d4d331a48b"
+    },
+    {
+      "path": "public/version-candidates.json",
+      "bytes": 9195,
+      "sha256": "7524429adca1cc843eda88801d758a7b58dd2ceb12e0d16f7e1001b4abd36e8d"
+    },
+    {
+      "path": "public/media-index.json",
+      "bytes": 18500,
+      "sha256": "4b86b4f53064b95492be3d062a6362b5b336a98cf268cfe2979baea0f3a5c5ea"
+    }
+  ],
+  "public_payload_update": "approved-happiness-unite-seven-public-files"
+}

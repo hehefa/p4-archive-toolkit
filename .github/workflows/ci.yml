@@ -1,0 +1,31 @@
+name: Toolkit checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Read code
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Synthetic regressions
+        run: python3 -m unittest discover -v
+      - name: Exact export and approved projection checks
+        run: python3 tools/release_gate.py
+      - name: Tracked-file privacy and public data structure
+        run: python3 tools/check_repository.py
+      - name: Browser code syntax
+        run: node --check web/app.js
